@@ -1,5 +1,6 @@
-package lesson6.pages;
+package lesson7.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -23,6 +24,7 @@ public class HomePage extends BasePage {
         return cookieBtn.isDisplayed();
     }
 
+    @Step("Разрешить все куки")
     public void clickAcceptAllCookies() {
         cookieBtn.click();
     }

@@ -1,4 +1,4 @@
-package lesson6.pages;
+package lesson7.pages;
 
 import org.openqa.selenium.Cookie;
 

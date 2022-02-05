@@ -1,5 +1,6 @@
-package lesson6.pages;
+package lesson7.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -12,6 +13,7 @@ public abstract class BasePage {
         PageFactory.initElements(driver, this);
     }
 
+    @Step("Загрузить страницу")
     public void navigate() {
         driver.get(getPageUrl());
     }

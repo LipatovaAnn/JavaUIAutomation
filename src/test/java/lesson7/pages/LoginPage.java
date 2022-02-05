@@ -1,6 +1,6 @@
-package lesson6.pages;
+package lesson7.pages;
 
-import org.openqa.selenium.By;
+import io.qameta.allure.Step;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -35,16 +35,19 @@ public class LoginPage extends  BasePage {
         return form.isDisplayed();
     }
 
+    @Step("Ввести логин")
     public LoginPage typeLogin(String v) {
         login.sendKeys(v);
         return this;
     }
 
+    @Step("Ввести пароль")
     public LoginPage typePassword(String v) {
         password.sendKeys(v);
         return this;
     }
 
+    @Step("Отправить форму")
     public void sendForm() {
         try {
             password.sendKeys(Keys.ENTER);

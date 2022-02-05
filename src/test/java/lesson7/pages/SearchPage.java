@@ -1,6 +1,6 @@
-package lesson6.pages;
+package lesson7.pages;
 
-import org.openqa.selenium.By;
+import io.qameta.allure.Step;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -32,6 +32,7 @@ public class SearchPage extends  BasePage {
         return pageUrl;
     }
 
+    @Step("Открыть меню поиска")
     public SearchPage openSearch() {
         new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.elementToBeClickable(searchButton));
         searchButton.click();
@@ -42,6 +43,7 @@ public class SearchPage extends  BasePage {
         return searchInput.isDisplayed();
     }
 
+    @Step("Искать результат")
     public SearchPage searchFor(String v) {
         searchInput.sendKeys(v);
         searchInput.sendKeys(Keys.ENTER);
@@ -53,8 +55,10 @@ public class SearchPage extends  BasePage {
        return firstResult.isDisplayed();
     }
 
+    @Step("Нажать первый результат поиска")
     public void clickFirstResult() {
         String currentUrl = driver.getCurrentUrl();
+        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.elementToBeClickable(firstResult));
         firstResult.click();
         new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.not(ExpectedConditions.urlContains(currentUrl)));
     }
